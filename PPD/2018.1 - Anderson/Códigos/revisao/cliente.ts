@@ -33,4 +33,10 @@ export class Cliente{
     public setCompras(compras: Array<Roupa>): void{
         this.compras = compras;
     }
+
+    public adicionarRoupa(qtd : number, roupa : Roupa) : boolean{
+        roupa.setQtd(qtd);
+        this.compras.push(roupa);
+        return true
+    } 
 }

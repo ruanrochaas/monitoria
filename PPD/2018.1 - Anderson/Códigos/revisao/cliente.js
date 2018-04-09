@@ -24,5 +24,10 @@ class Cliente {
     setCompras(compras) {
         this.compras = compras;
     }
+    adicionarRoupa(qtd, roupa) {
+        roupa.setQtd(qtd);
+        this.compras.push(roupa);
+        return true;
+    }
 }
 exports.Cliente = Cliente;

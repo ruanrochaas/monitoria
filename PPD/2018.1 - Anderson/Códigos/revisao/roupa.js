@@ -35,7 +35,7 @@ class Roupa {
     getQtd() {
         return this.qtd;
     }
-    setNome(qtd) {
+    setQtd(qtd) {
         this.qtd = qtd;
     }
 }

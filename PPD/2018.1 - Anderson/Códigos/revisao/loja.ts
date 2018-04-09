@@ -38,7 +38,43 @@ export class Loja{
         return true;
     }
 
-    public cadCliente(cliente: Cliente): boolean{
-        return
+    public criarEcadastrarRoupa(cor : string, tamanho : string, codigoDeBarras : string, tipo : string, quantidade : number) : boolean{
+        let roupa : Roupa;
+        roupa = new Roupa(cor, codigoDeBarras,tamanho, tipo, quantidade);
+        for (let roupaPercorrida of this.roupas){
+            if (roupaPercorrida.getCodigo() == roupa.getCodigo()){
+                return false;
+            }
+                  
+        }
+        this.roupas.push(roupa);
+        return true;
+    }
+
+    public venderRoupa(codRoupa: string, cpfCliente : string, quantidadeR : number) : boolean{
+        let clienteX : Cliente;
+        for (let pCliente of this.clientes){
+            if (pCliente.getCpf() == cpfCliente){
+                clienteX = pCliente;
+            }
+        }
+        if(clienteX == undefined){
+            return false;
+        }
+        let roupaX : Roupa;
+        for ( let proupa of this.roupas){
+            if (proupa.getCodigo() == codRoupa){
+                roupaX = proupa;
+            }
+        }
+        if(roupaX == undefined){
+            return false;
+        }
+        let novaQtd : number = roupaX.getQtd() - quantidadeR;
+        roupaX.setQtd(novaQtd);
+        
+        clienteX.adicionarRoupa(quantidadeR,roupaX);
+
+        return true;
     }
 }

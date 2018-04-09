@@ -49,7 +49,7 @@ export class Roupa{
         return this.qtd;
     }
 
-    public setNome(qtd: number): void{
+    public setQtd(qtd: number): void{
         this.qtd = qtd;
     }
 }
